@@ -29,6 +29,24 @@ class _CalculatorState extends State<Calculator> {
     );*/
   }
 
+  Widget colorbtn(var textt) {
+    return SizedBox(
+      width: 100,
+      height: 100,
+      child: ElevatedButton(
+        onPressed: () {
+          setState(() {
+            result = result + textt;
+          });
+        },
+        child: Text(textt),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.yellow),
+        ),
+      ),
+    );
+  }
+
   clearr() {
     setState(() {
       result = "";
@@ -135,13 +153,13 @@ class _CalculatorState extends State<Calculator> {
                     width: 10,
                   ),
                   Expanded(
-                    child: btn("+"),
+                    child: colorbtn("+"),
                   ),
                   SizedBox(
                     width: 10,
                   ),
                   Expanded(
-                    child: btn("-"),
+                    child: colorbtn("-"),
                   ),
                 ],
               ),
@@ -152,13 +170,13 @@ class _CalculatorState extends State<Calculator> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Expanded(
-                    child: btn("*"),
+                    child: colorbtn("*"),
                   ),
                   SizedBox(
                     width: 10,
                   ),
                   Expanded(
-                    child: btn("/"),
+                    child: colorbtn("/"),
                   ),
                   SizedBox(
                     width: 10,
@@ -170,6 +188,10 @@ class _CalculatorState extends State<Calculator> {
                       child: ElevatedButton(
                         onPressed: clearr,
                         child: Text("clear"),
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.yellow),
+                        ),
                       ),
                     ),
                   ),
@@ -183,6 +205,10 @@ class _CalculatorState extends State<Calculator> {
                       child: ElevatedButton(
                         onPressed: output,
                         child: Text("="),
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.yellow),
+                        ),
                       ),
                     ),
                   ),
